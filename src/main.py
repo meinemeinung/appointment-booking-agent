@@ -57,7 +57,7 @@ def chat(chatbot: ChatBot, appointment_manager: AppointmentManager):
 
 if __name__ == '__main__':
     load_dotenv()
-    manager = CSVAppointmentManager(os.getenv("APPPOINTMENT_PATH"))
+    manager = CSVAppointmentManager(os.getenv("APPOINTMENT_PATH"))
     chatbot = OpenAIChatBot(api_key=os.getenv("OPENAI_API_KEY"))
     chat(chatbot, manager)
     
