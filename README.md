@@ -30,10 +30,12 @@ Create a `.env` file in the root directory of the project by copying the `.env.e
 
 ### Running the Console App
 ```bash
+cd src/
 python main.py
 ```
 
 ### Running the Flask Application
 ```bash
+cd src/
 python app.py
 ```
