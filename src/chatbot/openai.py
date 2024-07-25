@@ -57,17 +57,6 @@ class OpenAIChatBot(ChatBot):
             'start_time': start_time.strip(),
             'end_time': end_time.strip()
         }
-        clean_details = {}
-        for key,val in details.items():
-            if val.lower() != 'unknown':
-                if key=='date':
-                    clean_details[key] = dt.datetime.strptime(val, '%Y-%m-%d')
-                elif key in ['start_time', 'end_time']:
-                    clean_details[key] = dt.datetime.strptime(f'{details["date"]} {details[key]}', '%Y-%m-%d %H:%M:%S')
-                else:
-                    clean_details[key] = val
-            else:
-                clean_details[key] = None
 
-        return clean_details
+        return self.process_details(details)
     
