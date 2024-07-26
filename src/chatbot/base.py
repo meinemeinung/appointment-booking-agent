@@ -26,7 +26,7 @@ class ChatBot(ABC):
                 elif key in ['start_time', 'end_time']:
                     clean_details[key] = dt.datetime.strptime(
                         f'{clean_details["date"].strftime("%Y-%m-%d")} {details[key]}', '%Y-%m-%d %H:%M:%S'
-                    ).time()
+                    )
                 else:
                     clean_details[key] = val
             else:
