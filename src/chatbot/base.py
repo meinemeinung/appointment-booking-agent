@@ -16,13 +16,13 @@ class ChatBot(ABC):
             if val.lower() != 'unknown':
                 if key == 'date':
                     if val.lower() == 'today':
-                        clean_details[key] = dt.datetime.today().date()
+                        clean_details[key] = dt.datetime.today()
                     elif val.lower() == 'tomorrow':
-                        clean_details[key] = dt.datetime.today().date() + dt.timedelta(days=1)
+                        clean_details[key] = dt.datetime.today() + dt.timedelta(days=1)
                     elif val.lower() == 'next week':
-                        clean_details[key] = dt.datetime.today().date() + dt.timedelta(days=7)
+                        clean_details[key] = dt.datetime.today() + dt.timedelta(days=7)
                     else:
-                        clean_details[key] = dt.datetime.strptime(val, '%Y-%m-%d').date()
+                        clean_details[key] = dt.datetime.strptime(val, '%Y-%m-%d')
                 elif key in ['start_time', 'end_time']:
                     clean_details[key] = dt.datetime.strptime(
                         f'{clean_details["date"].strftime("%Y-%m-%d")} {details[key]}', '%Y-%m-%d %H:%M:%S'
